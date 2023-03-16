@@ -21,9 +21,7 @@ const Greetingf = (props) => {
           </div>
         )
 }
-
 Greetingf.propTypes = {
     name: PropTypes.string
 }
-
 export default Greetingf;
