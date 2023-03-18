@@ -12,11 +12,11 @@ import Greetingstyled from './components/pure/greetingStyled';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      {/* <header className="App-header"> */}
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         {/* <Greeting name="Maria"/> */}
         {/* <GreetingF name={"Cristina"}/> */}
-        {/* <TaskListComponent></TaskListComponent> */}
+        <TaskListComponent></TaskListComponent>
         {/* <ContactListComponent></ContactListComponent> */}
         {/* <Ejemplo1></Ejemplo1> */}
         {/* <Ejemplo2></Ejemplo2> */}
@@ -26,8 +26,8 @@ function App() {
             Contenido del props.children
           </h3>
         </Ejemplo4> */}
-        <Greetingstyled name='Maria'></Greetingstyled>
-      </header>
+        {/* <Greetingstyled name='Maria'></Greetingstyled> */}
+      {/* </header> */}
     </div>
   );
 }
