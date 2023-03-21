@@ -17,13 +17,16 @@ const Taskform=({add})=> {
       levelRef.current.value
     )
     add(newTask)
+    nameRef.current.value=''
+    descriptionRef.current.value=''
+    levelRef.current.value=''
   }
   
   return (
     <form onSubmit={addTask} className='d-flex justify-content-center align-items-center mb-4'>
       <div className='form-outline flex-fill'>
-        <input ref={nameRef} id='inputName' type='text' className='form-control form-control-lg' required autoFocus/>
-        <input ref={descriptionRef} id='inputDescription' type='text' className='form-control form-control-lg' required autoFocus/>
+        <input ref={nameRef} id='inputName' type='text' placeholder='Task Name' className='form-control form-control-lg' required autoFocus/>
+        <input ref={descriptionRef} id='inputDescription' type='text' className='form-control form-control-lg' required placeholder='Task Description'/>
         <label htmlFor='selectLevel'  className='sr-only'>Priority</label>
         <select ref={levelRef} defaultValue={LEVELS.NORMAL} id='selectlevel'>
           <option value={LEVELS.NORMAL}>
