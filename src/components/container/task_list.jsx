@@ -15,11 +15,14 @@ const TaskListComponent = ({ task }) => {
   const [loading, setLoading] = useState(true)
   useEffect(() => {
     console.log('Task state has been modifiend')
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000);
     setLoading(false)
     return () => {
       console.log('TaskList component is going to unmount...')
     }
-  })
+  }, [tasks])
 
   function completeTask(task) {
     console.log('Completed task ', task)
@@ -76,6 +79,11 @@ const TaskListComponent = ({ task }) => {
     taskTable = <div><h3>There are not task</h3>
     <span>Plase, add one</span></div>
   }
+  const LoadingStyle={
+    color:'grey',
+    fontSoze: '30px',
+    fontWeight:'bold'
+  }
   return (
     <div>
       <div className='col-12'>
@@ -86,7 +94,7 @@ const TaskListComponent = ({ task }) => {
             </h5>
           </div>
           <div className='card-body data-mdb-perfect-onScroll={true}' style={{ position: 'relative', height: '400px' }}>
-            {taskTable}
+            { loading ? (<p style={LoadingStyle}>Loading tasks ...</p>) : taskTable}
           </div>
         </div>
       </div>

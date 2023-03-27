@@ -24,12 +24,11 @@ const Taskform = ({ add, cant }) => {
   }
 
   return (
-    <form onSubmit={addTask} className='d-flex justify-content-center align-items-center mb-4'>
+    <form onSubmit={addTask} className='d-flex justify-content-center align-items-center'>
       <div className='form-outline flex-fill'>
-        <input ref={nameRef} id='inputName' type='text' placeholder='Task Name' className='form-control form-control-lg' required autoFocus />
-        <input ref={descriptionRef} id='inputDescription' type='text' className='form-control form-control-lg' required placeholder='Task Description' />
-        <label htmlFor='selectLevel' className='sr-only'>Priority</label>
-        <select ref={levelRef} defaultValue={LEVELS.NORMAL} id='selectlevel'>
+        <input ref={nameRef} id='inputName' type='text' placeholder='Task Name' className='form-control' required autoFocus />
+        <input ref={descriptionRef} id='inputDescription' type='text' className='form-control' required placeholder='Task Description' />
+        <select className='form-control' ref={levelRef} defaultValue={LEVELS.NORMAL} id='selectlevel'>
           <option value={LEVELS.NORMAL}>
             Normal
           </option>
