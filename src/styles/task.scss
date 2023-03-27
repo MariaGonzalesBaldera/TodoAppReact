@@ -1,3 +1,10 @@
 .task-action{
     cursor: pointer;
 }
+.task-pending{
+    color: tomato;
+    text-decoration: line-through;
+}
+.task-completed{
+    color: gray;
+}

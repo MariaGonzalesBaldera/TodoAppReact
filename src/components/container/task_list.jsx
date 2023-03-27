@@ -28,22 +28,54 @@ const TaskListComponent = ({ task }) => {
     temTasks[index].completed = !temTasks[index].completed
     setTasks(temTasks)
   }
-  function deleteTask(task){
+  function deleteTask(task) {
     console.log('Delete this Task ', task)
     const index = tasks.indexOf(task)
-    const tempTasks= [...tasks]
-    tempTasks.splice(index,1)
+    const tempTasks = [...tasks]
+    tempTasks.splice(index, 1)
     setTasks(tempTasks)
   }
 
-  function addTask(task){
+  function addTask(task) {
     console.log('Add this task', task)
-    const index = tasks.indexOf(tasks)
     const tempTasks = [...tasks]
     tempTasks.push(task)
     setTasks(tempTasks)
   }
-
+  const Table = () => {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th scope='col'>Title</th>
+            <th scope='col'>Descripción</th>
+            <th scope='col'>Priority</th>
+            <th scope='col'>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tasks.map((task, index) => {
+            return (
+              <TaskComponent
+                key={index}
+                task={task}
+                complete={completeTask}
+                remove={deleteTask}
+              ></TaskComponent>
+            )
+          }
+          )}
+        </tbody>
+      </table>
+    )
+  }
+  let taskTable;
+  if (tasks.length > 0) {
+    taskTable = <Table></Table>
+  } else {
+    taskTable = <div><h3>There are not task</h3>
+    <span>Plase, add one</span></div>
+  }
   return (
     <div>
       <div className='col-12'>
@@ -54,37 +86,14 @@ const TaskListComponent = ({ task }) => {
             </h5>
           </div>
           <div className='card-body data-mdb-perfect-onScroll={true}' style={{ position: 'relative', height: '400px' }}>
-            <table>
-              <thead>
-                <tr>
-                  <th scope='col'>Title</th>
-                  <th scope='col'>Descripción</th>
-                  <th scope='col'>Priority</th>
-                  <th scope='col'>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tasks.map((task, index) => {
-                  return (
-                    <TaskComponent
-                      key={index}
-                      task={task}
-                      complete={completeTask}
-                      remove={deleteTask}
-                    ></TaskComponent>
-                  )
-                }
-                )}
-                {/* <TaskComponent task={Task} ></TaskComponent> */}
-              </tbody>
-            </table>
+            {taskTable}
           </div>
         </div>
       </div>
       {/* TODO: Aplicar un for/map para renderizar una lista*/}
-      <Taskform add={addTask}>
+      <Taskform add={addTask} cant={tasks.length}>
 
-          </Taskform>
+      </Taskform>
     </div>
   )
 }

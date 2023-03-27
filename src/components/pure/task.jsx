@@ -6,9 +6,7 @@ import { LEVELS } from '../../models/levels.enum'
 
 const TaskComponent = ({ task, complete, remove }) => {
 
-    useEffect(() => {
-      console.log('Tarea creada')
-    
+    useEffect(() => {    
       return () => {
         console.log(`Task: ${task.name}  id going to`)
       }
@@ -49,7 +47,7 @@ const TaskComponent = ({ task, complete, remove }) => {
         
     }    
     return (
-        <tr className='fw-normal'>
+        <tr  className= {task.completed ? 'task-completed':'task-pending'}>
             <th>
                 <span className='ms-2'>{task.name}</span>
             </th>

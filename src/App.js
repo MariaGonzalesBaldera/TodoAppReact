@@ -8,6 +8,7 @@ import Ejemplo1 from './hooks/Ejemplo1';
 import Ejemplo2 from './hooks/Ejemplo2';
 import Ejemplo4 from './hooks/Ejemplo4';
 import Greetingstyled from './components/pure/greetingStyled';
+import OptionalRender from './components/pure/optionalRender';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         {/* <Greeting name="Maria"/> */}
         {/* <GreetingF name={"Cristina"}/> */}
         <TaskListComponent></TaskListComponent>
+
+        {/* <OptionalRender></OptionalRender> */}
+
         {/* <ContactListComponent></ContactListComponent> */}
         {/* <Ejemplo1></Ejemplo1> */}
         {/* <Ejemplo2></Ejemplo2> */}
